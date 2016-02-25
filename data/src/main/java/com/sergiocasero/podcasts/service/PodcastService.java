@@ -1,7 +1,7 @@
 package com.sergiocasero.podcasts.service;
 
-import com.sergiocasero.podcasts.model.Podcast;
-import com.sergiocasero.podcasts.model.Radio;
+import com.sergiocasero.podcasts.model.PodcastVo;
+import com.sergiocasero.podcasts.model.RadioVo;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ public interface PodcastService {
     public static final String ENDPOINT = "http://todotelegram.com/sport_podcast";
 
     @GET("/radio")
-    Observable<Radio> getAllRadios();
+    Observable<RadioVo> getAllRadios();
 
     @GET("/podcast")
-    Observable<List<Podcast>> getPodcasts(@Path("radio") String radio);
+    Observable<List<PodcastVo>> getPodcasts(@Path("radio") String radio);
 }
