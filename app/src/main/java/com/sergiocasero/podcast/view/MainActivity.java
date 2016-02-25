@@ -1,20 +1,21 @@
 package com.sergiocasero.podcast.view;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.karumi.rosie.view.RosieActivity;
 import com.sergiocasero.podcast.R;
 import com.sergiocasero.podcast.presenter.MainPresenter;
 
-public class MainActivity extends RosieActivity implements MainPresenter.View {
+public class MainActivity extends AppCompatActivity implements MainPresenter.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+        MainPresenter mainPresenter = new MainPresenter();
+
+        mainPresenter.initialize();
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
-    }
 }

@@ -1,9 +1,6 @@
 package com.sergiocasero.podcasts.service;
 
-import com.sergiocasero.podcasts.model.PodcastVo;
-import com.sergiocasero.podcasts.model.RadioVo;
-
-import java.util.List;
+import com.sergiocasero.podcasts.model.RadioResponse;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
@@ -13,11 +10,11 @@ import rx.Observable;
  * Created by sergiocasero on 25/2/16.
  */
 public interface PodcastService {
-    public static final String ENDPOINT = "http://todotelegram.com/sport_podcast";
+    String ENDPOINT = "http://todotelegram.com/sport_podcast";
 
     @GET("/radio")
-    Observable<RadioVo> getAllRadios();
+    Observable<RadioResponse> getAllRadios();
 
     @GET("/podcast")
-    Observable<List<PodcastVo>> getPodcasts(@Path("radio") String radio);
+    Observable<RadioResponse> getPodcasts(@Path("radio") String radio);
 }

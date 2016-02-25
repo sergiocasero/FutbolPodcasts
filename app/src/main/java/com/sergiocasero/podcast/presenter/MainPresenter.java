@@ -1,40 +1,50 @@
 package com.sergiocasero.podcast.presenter;
 
-import com.karumi.rosie.domain.usecase.UseCaseHandler;
-import com.karumi.rosie.view.RosiePresenter;
+import android.util.Log;
+
+import com.sergiocasero.podcasts.interactor.GetAllRadiosUseCase;
+import com.sergiocasero.podcasts.model.Radio;
+import com.sergiocasero.podcasts.repository.PodcastDataRepository;
+
+import java.util.List;
+
+import rx.Subscriber;
 
 /**
  * Created by sergiocasero on 25/2/16.
  */
-public class MainPresenter extends RosiePresenter<MainPresenter.View> {
+public class MainPresenter {
 
-    public MainPresenter(UseCaseHandler useCaseHandler) {
-        super(useCaseHandler);
+    private static final String TAG = "MainPresenter";
+    GetAllRadiosUseCase allRadiosUseCase;
+
+    public MainPresenter() {
+        allRadiosUseCase = new GetAllRadiosUseCase(new PodcastDataRepository());
     }
 
-    @Override
-    protected void initialize() {
+    public void initialize() {
+        allRadiosUseCase.execute(new Subscriber<List<Radio>>() {
+            @Override
+            public void onCompleted() {
 
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                throw new RuntimeException(e);
+            }
+
+            @Override
+            public void onNext(List<Radio> radios) {
+                Log.i(TAG, "Hello radios! ");
+                for (Radio radio : radios) {
+                    Log.i(TAG, radio.getName());
+                }
+            }
+        });
     }
 
-    @Override
-    protected void update() {
-
-    }
-
-
-    @Override
-    protected void pause() {
-
-    }
-
-    @Override
-    protected void destroy() {
-
-    }
-
-
-    public interface View extends RosiePresenter.View {
+    public interface View {
 
     }
 }
