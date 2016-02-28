@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_radios);
         MainPresenter mainPresenter = new MainPresenter();
 
         mainPresenter.initialize();
