@@ -5,7 +5,7 @@ package com.sergiocasero.podcast.presenter;
  */
 public abstract class Presenter<V extends Presenter.View> {
 
-    V view;
+    protected V view;
 
     public abstract void initialize();
 

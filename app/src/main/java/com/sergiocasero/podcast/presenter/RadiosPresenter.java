@@ -1,9 +1,16 @@
 package com.sergiocasero.podcast.presenter;
 
+import javax.inject.Inject;
+
 /**
  * Created by sergiocasero on 28/2/16.
  */
 public class RadiosPresenter extends Presenter<RadiosPresenter.View> {
+
+    @Inject
+    public RadiosPresenter() {
+
+    }
 
     @Override
     public void initialize() {
