@@ -1,8 +1,11 @@
 package com.sergiocasero.podcast.data.repository;
 
 import com.sergiocasero.podcast.data.httpclient.PodcastClient;
+import com.sergiocasero.podcast.data.model.RadioDto;
 import com.sergiocasero.podcast.data.service.PodcastService;
-import com.sergiocasero.podcast.domain.model.RadioResponse;
+import com.sergiocasero.podcast.data.model.RadioResponseDto;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -23,7 +26,7 @@ public class PodcastDataRepository implements PodcastRepository {
     }
 
     @Override
-    public Observable<RadioResponse> getRadios() {
+    public Observable<List<RadioDto>> getRadios() {
         return podcastService.getAllRadios();
     }
 }

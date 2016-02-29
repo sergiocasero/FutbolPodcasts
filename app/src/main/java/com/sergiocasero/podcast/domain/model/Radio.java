@@ -7,9 +7,11 @@ import lombok.Data;
  */
 @Data
 public class Radio {
+    private int id;
+
     private String name;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String logo;
+
+    private String url;
 }

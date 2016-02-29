@@ -39,6 +39,7 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
 
     private void initializePresenter() {
         radiosPresenter.setView(this);
+        radiosPresenter.initialize();
     }
 
     private void initializeDI() {

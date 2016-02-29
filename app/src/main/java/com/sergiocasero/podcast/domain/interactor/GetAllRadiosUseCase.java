@@ -1,8 +1,8 @@
 package com.sergiocasero.podcast.domain.interactor;
 
+import com.sergiocasero.podcast.data.mapper.RadioDtoMapper;
 import com.sergiocasero.podcast.data.repository.PodcastRepository;
 import com.sergiocasero.podcast.domain.model.Radio;
-import com.sergiocasero.podcast.domain.model.RadioResponse;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import javax.inject.Inject;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Func1;
 
 /**
  * Created by sergiocasero on 25/2/16.
@@ -30,12 +29,11 @@ public class GetAllRadiosUseCase extends UseCase {
     }
 
     @Override
-    protected Observable buildObservable() {
-        return podcastRepository.getRadios().map(new Func1<RadioResponse, List<Radio>>() {
-            @Override
-            public List<Radio> call(RadioResponse radioResponse) {
-                return radioResponse.getRadios();
-            }
-        });
+    protected Observable<List<Radio>> buildObservable() {
+        RadioDtoMapper radioDtoMapper = new RadioDtoMapper();
+        return podcastRepository.getRadios()
+                .flatMap(Observable::from)
+                .map(radioDtoMapper::dataToModel)
+                .toList();
     }
 }
