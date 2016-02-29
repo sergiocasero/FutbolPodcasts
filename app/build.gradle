@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.frogermcs.dagger2metrics'
 
 android {
     compileSdkVersion 23
@@ -24,9 +25,12 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile project(':domain')
-    // TODO REMOVE THIS, solve with DI
-    compile project(':data')
+
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+
+    compile 'org.projectlombok:lombok:1.16.6'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
 
 
     compile 'com.google.dagger:dagger:2.0'

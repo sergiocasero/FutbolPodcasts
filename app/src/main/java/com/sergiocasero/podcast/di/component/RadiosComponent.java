@@ -2,7 +2,7 @@ package com.sergiocasero.podcast.di.component;
 
 import com.sergiocasero.podcast.di.PodcastScope;
 import com.sergiocasero.podcast.di.module.RadiosModule;
-import com.sergiocasero.podcast.view.RadiosActivity;
+import com.sergiocasero.podcast.presentation.view.RadiosActivity;
 
 import dagger.Component;
 

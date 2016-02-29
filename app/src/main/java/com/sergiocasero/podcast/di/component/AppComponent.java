@@ -1,9 +1,8 @@
 package com.sergiocasero.podcast.di.component;
 
-import android.content.Context;
-
+import com.sergiocasero.podcast.data.repository.PodcastRepository;
 import com.sergiocasero.podcast.di.module.AppModule;
-import com.sergiocasero.podcast.view.RootActivity;
+import com.sergiocasero.podcast.presentation.view.RootActivity;
 
 import javax.inject.Singleton;
 
@@ -17,5 +16,5 @@ import dagger.Component;
 public interface AppComponent {
     void inject(RootActivity activity);
 
-    Context context();
+    PodcastRepository getPodcastRepository();
 }

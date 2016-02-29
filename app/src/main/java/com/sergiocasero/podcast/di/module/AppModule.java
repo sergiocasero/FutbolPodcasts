@@ -3,6 +3,8 @@ package com.sergiocasero.podcast.di.module;
 import android.content.Context;
 
 import com.sergiocasero.podcast.application.PodcastApplication;
+import com.sergiocasero.podcast.data.repository.PodcastDataRepository;
+import com.sergiocasero.podcast.data.repository.PodcastRepository;
 
 import javax.inject.Singleton;
 
@@ -29,5 +31,11 @@ public class AppModule {
     @Singleton
     Context provideContext() {
         return this.podcastApplication;
+    }
+
+    @Provides
+    @Singleton
+    PodcastRepository providePodcastRepository(PodcastDataRepository podcastRepository) {
+        return podcastRepository;
     }
 }
