@@ -1,7 +1,5 @@
 package com.sergiocasero.podcast.presentation.presenter;
 
-import android.util.Log;
-
 import com.sergiocasero.podcast.domain.interactor.GetAllRadiosUseCase;
 import com.sergiocasero.podcast.domain.interactor.UseCase;
 import com.sergiocasero.podcast.domain.model.Radio;
@@ -10,8 +8,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import rx.Subscriber;
 
 /**
  * Created by sergiocasero on 28/2/16.
@@ -28,20 +24,15 @@ public class RadiosPresenter extends Presenter<RadiosPresenter.View> {
 
     @Override
     public void initialize() {
-        allRadiosUseCase.execute(new Subscriber<List<Radio>>() {
+        allRadiosUseCase.execute(new GetAllRadiosUseCase.AllRadiosListener() {
             @Override
-            public void onCompleted() {
-
+            public void onRadiosLoaded(List<Radio> radios) {
+                view.setRadios(radios);
             }
 
             @Override
-            public void onError(Throwable e) {
-                throw new RuntimeException(e);
-            }
-
-            @Override
-            public void onNext(List<Radio> radios) {
-                Log.i(TAG, radios.toString());
+            public void onRadiosError(Throwable e) {
+                view.showError(e.toString());
             }
         });
     }
@@ -63,5 +54,6 @@ public class RadiosPresenter extends Presenter<RadiosPresenter.View> {
 
     public interface View extends Presenter.View {
 
+        void setRadios(List<Radio> radios);
     }
 }

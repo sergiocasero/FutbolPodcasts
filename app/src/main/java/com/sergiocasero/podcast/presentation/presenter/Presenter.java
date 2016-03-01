@@ -21,5 +21,8 @@ public abstract class Presenter<V extends Presenter.View> {
 
     public interface View {
 
+        void showError(String s);
+
+        void hideError();
     }
 }

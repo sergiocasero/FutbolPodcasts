@@ -5,8 +5,11 @@ import android.os.Bundle;
 import com.sergiocasero.podcast.R;
 import com.sergiocasero.podcast.di.component.DaggerRadiosComponent;
 import com.sergiocasero.podcast.di.component.RadiosComponent;
+import com.sergiocasero.podcast.domain.model.Radio;
 import com.sergiocasero.podcast.presentation.presenter.Presenter;
 import com.sergiocasero.podcast.presentation.presenter.RadiosPresenter;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -48,5 +51,20 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
                 .build();
 
         radiosComponent.inject(this);
+    }
+
+    @Override
+    public void setRadios(List<Radio> radios) {
+
+    }
+
+    @Override
+    public void showError(String s) {
+
+    }
+
+    @Override
+    public void hideError() {
+
     }
 }
