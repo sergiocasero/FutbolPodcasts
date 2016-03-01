@@ -1,4 +1,4 @@
-package com.sergiocasero.podcast.presentation.view;
+package com.sergiocasero.podcast.presentation.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
