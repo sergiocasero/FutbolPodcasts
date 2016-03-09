@@ -62,6 +62,20 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
         initializeDI();
         initializePresenter();
         initializeUI();
+        registerListeners();
+    }
+
+    private void initializeDI() {
+        radiosComponent = DaggerRadiosComponent.builder()
+                .appComponent(getAppComponent())
+                .build();
+
+        radiosComponent.inject(this);
+    }
+
+    private void initializePresenter() {
+        radiosPresenter.setView(this);
+        radiosPresenter.initialize();
     }
 
     private void initializeUI() {
@@ -76,17 +90,10 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
         radios.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
-    private void initializePresenter() {
-        radiosPresenter.setView(this);
-        radiosPresenter.initialize();
-    }
-
-    private void initializeDI() {
-        radiosComponent = DaggerRadiosComponent.builder()
-                .appComponent(getAppComponent())
-                .build();
-
-        radiosComponent.inject(this);
+    private void registerListeners() {
+        radiosAdapter.setOnItemClickListener(radioId -> {
+            radiosPresenter.navigateToRadioDetail(RadiosActivity.this, radioId);
+        });
     }
 
     @Override

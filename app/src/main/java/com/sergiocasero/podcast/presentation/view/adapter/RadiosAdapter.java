@@ -24,6 +24,8 @@ public class RadiosAdapter extends RecyclerView.Adapter<RadiosAdapter.RadioViewH
 
     private List<Radio> items;
 
+    private OnItemClickListener onItemClickListener;
+
     public RadiosAdapter() {
         items = new ArrayList<>();
     }
@@ -49,6 +51,10 @@ public class RadiosAdapter extends RecyclerView.Adapter<RadiosAdapter.RadioViewH
         return items.size();
     }
 
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
     public class RadioViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.name)
@@ -66,6 +72,11 @@ public class RadiosAdapter extends RecyclerView.Adapter<RadiosAdapter.RadioViewH
             super(itemView);
             this.itemView = itemView;
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(v -> {
+                Radio radio = items.get(RadioViewHolder.super.getAdapterPosition());
+                onItemClickListener.onItemClick(radio.getId());
+            });
         }
 
         public void bind(Radio radio) {
@@ -76,5 +87,9 @@ public class RadiosAdapter extends RecyclerView.Adapter<RadiosAdapter.RadioViewH
                     .load(radio.getLogo())
                     .into(logo);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int radioId);
     }
 }
