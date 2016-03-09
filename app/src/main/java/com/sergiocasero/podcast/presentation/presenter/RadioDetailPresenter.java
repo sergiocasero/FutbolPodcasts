@@ -1,5 +1,9 @@
 package com.sergiocasero.podcast.presentation.presenter;
 
+import android.util.Log;
+
+import com.sergiocasero.podcast.domain.model.Radio;
+
 import javax.inject.Inject;
 
 /**
@@ -7,7 +11,8 @@ import javax.inject.Inject;
  */
 public class RadioDetailPresenter extends Presenter<RadioDetailPresenter.RadioDetailView> {
 
-    private int radioId;
+    private static final String TAG = "RadioDetailPresenter";
+    private Radio radio;
 
     @Inject
     public RadioDetailPresenter() {
@@ -34,8 +39,9 @@ public class RadioDetailPresenter extends Presenter<RadioDetailPresenter.RadioDe
 
     }
 
-    public void setRadioId(int radioId) {
-        this.radioId = radioId;
+    public void setRadio(Radio radio) {
+        this.radio = radio;
+        Log.i(TAG, radio.toString());
     }
 
     public interface RadioDetailView extends Presenter.View {

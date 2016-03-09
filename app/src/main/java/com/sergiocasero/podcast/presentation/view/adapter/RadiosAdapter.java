@@ -75,7 +75,7 @@ public class RadiosAdapter extends RecyclerView.Adapter<RadiosAdapter.RadioViewH
 
             itemView.setOnClickListener(v -> {
                 Radio radio = items.get(RadioViewHolder.super.getAdapterPosition());
-                onItemClickListener.onItemClick(radio.getId());
+                onItemClickListener.onItemClick(radio);
             });
         }
 
@@ -90,6 +90,6 @@ public class RadiosAdapter extends RecyclerView.Adapter<RadiosAdapter.RadioViewH
     }
 
     public interface OnItemClickListener {
-        void onItemClick(int radioId);
+        void onItemClick(Radio radio);
     }
 }

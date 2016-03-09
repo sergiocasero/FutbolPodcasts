@@ -56,10 +56,10 @@ public class RadiosPresenter extends Presenter<RadiosPresenter.View> {
 
     }
 
-    public void navigateToRadioDetail(RootActivity activity, int radioId) {
+    public void navigateToRadioDetail(RootActivity activity, Radio radio) {
         Intent intent = new Intent(activity, RadioDetailActivity.class);
-        String radio_id = "RADIO_ID";
-        intent.putExtra(radio_id, radioId);
+        String radioKey = "RADIO";
+        intent.putExtra(radioKey, radio);
         activity.startActivity(intent);
     }
 

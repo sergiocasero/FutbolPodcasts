@@ -22,6 +22,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 
 /**
@@ -42,6 +43,9 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
 
     @Bind(R.id.container)
     LinearLayout container;
+
+    @BindString(R.string.app_name)
+    String appName;
 
     @Inject
     RadiosPresenter radiosPresenter;
@@ -81,7 +85,7 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
     private void initializeUI() {
         ButterKnife.bind(this);
 
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle(appName);
         toolbar.setTitleTextColor(ContextCompat.getColor(this, android.R.color.white));
         setSupportActionBar(toolbar);
 
@@ -91,9 +95,7 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
     }
 
     private void registerListeners() {
-        radiosAdapter.setOnItemClickListener(radioId -> {
-            radiosPresenter.navigateToRadioDetail(RadiosActivity.this, radioId);
-        });
+        radiosAdapter.setOnItemClickListener(radio -> radiosPresenter.navigateToRadioDetail(RadiosActivity.this, radio));
     }
 
     @Override

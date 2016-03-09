@@ -6,6 +6,7 @@ import com.sergiocasero.podcast.R;
 import com.sergiocasero.podcast.di.component.DaggerRadioDetailComponent;
 import com.sergiocasero.podcast.di.component.RadioDetailComponent;
 import com.sergiocasero.podcast.di.module.DetailRadioModule;
+import com.sergiocasero.podcast.domain.model.Radio;
 import com.sergiocasero.podcast.presentation.presenter.Presenter;
 import com.sergiocasero.podcast.presentation.presenter.RadioDetailPresenter;
 
@@ -41,7 +42,7 @@ public class RadioDetailActivity extends RootActivity implements RadioDetailPres
     // FIXME: 9/3/16 HARDCODED STRING??? WTF
     private void initializePresenter() {
         radioDetailPresenter.setView(this);
-        radioDetailPresenter.setRadioId((Integer) getIntent().getExtras().get("RADIO_ID"));
+        radioDetailPresenter.setRadio((Radio) getIntent().getExtras().get("RADIO"));
         radioDetailPresenter.initialize();
     }
 
