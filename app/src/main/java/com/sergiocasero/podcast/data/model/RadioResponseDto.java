@@ -1,7 +1,5 @@
 package com.sergiocasero.podcast.data.model;
 
-import com.sergiocasero.podcast.data.model.RadioDto;
-
 import java.util.List;
 
 import lombok.Data;
@@ -11,5 +9,5 @@ import lombok.Data;
  */
 @Data
 public class RadioResponseDto {
-    private List<RadioDto> radios; 
+    private List<RadioDto> radios;
 }
