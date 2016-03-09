@@ -3,7 +3,7 @@ package com.sergiocasero.podcast.presentation.view.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.sergiocasero.podcast.application.PodcastApplication;
+import com.sergiocasero.podcast.presentation.application.PodcastApplication;
 import com.sergiocasero.podcast.di.component.AppComponent;
 import com.sergiocasero.podcast.presentation.presenter.Presenter;
 
