@@ -7,6 +7,8 @@ import javax.inject.Inject;
  */
 public class RadioDetailPresenter extends Presenter<RadioDetailPresenter.RadioDetailView> {
 
+    private int radioId;
+
     @Inject
     public RadioDetailPresenter() {
     }
@@ -30,6 +32,10 @@ public class RadioDetailPresenter extends Presenter<RadioDetailPresenter.RadioDe
     @Override
     public void destroy() {
 
+    }
+
+    public void setRadioId(int radioId) {
+        this.radioId = radioId;
     }
 
     public interface RadioDetailView extends Presenter.View {
