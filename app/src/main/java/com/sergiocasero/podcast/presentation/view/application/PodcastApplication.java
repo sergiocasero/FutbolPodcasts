@@ -1,4 +1,4 @@
-package com.sergiocasero.podcast.presentation.application;
+package com.sergiocasero.podcast.presentation.view.application;
 
 import android.app.Application;
 

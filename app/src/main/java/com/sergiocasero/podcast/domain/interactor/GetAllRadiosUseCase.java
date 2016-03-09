@@ -1,6 +1,5 @@
 package com.sergiocasero.podcast.domain.interactor;
 
-import com.sergiocasero.podcast.data.mapper.RadioDtoMapper;
 import com.sergiocasero.podcast.data.repository.PodcastRepository;
 import com.sergiocasero.podcast.domain.model.Radio;
 
@@ -35,11 +34,7 @@ public class GetAllRadiosUseCase extends UseCase {
 
     @Override
     protected Observable<List<Radio>> buildObservable() {
-        RadioDtoMapper radioDtoMapper = new RadioDtoMapper();
-        return podcastRepository.getRadios()
-                .flatMap(Observable::from)
-                .map(radioDtoMapper::dataToModel)
-                .toList();
+        return podcastRepository.getRadios();
     }
 
     private class AllRadiosSubscriber extends Subscriber<List<Radio>> {

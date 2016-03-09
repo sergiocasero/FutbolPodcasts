@@ -11,5 +11,5 @@ import lombok.Data;
  */
 @Data
 public class RadioResponseDto {
-    private List<RadioDto> radios;
+    private List<RadioDto> radios; 
 }

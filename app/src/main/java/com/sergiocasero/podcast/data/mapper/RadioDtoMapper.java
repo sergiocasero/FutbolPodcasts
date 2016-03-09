@@ -3,10 +3,18 @@ package com.sergiocasero.podcast.data.mapper;
 import com.sergiocasero.podcast.data.model.RadioDto;
 import com.sergiocasero.podcast.domain.model.Radio;
 
+import javax.inject.Inject;
+
 /**
  * Created by sergiocasero on 29/2/16.
  */
 public class RadioDtoMapper implements Mapper<RadioDto, Radio> {
+
+    @Inject
+    public RadioDtoMapper() {
+
+    }
+
     @Override
     public Radio dataToModel(RadioDto data) {
         Radio radio = null;

@@ -2,7 +2,7 @@ package com.sergiocasero.podcast.di.module;
 
 import android.content.Context;
 
-import com.sergiocasero.podcast.presentation.application.PodcastApplication;
+import com.sergiocasero.podcast.presentation.view.application.PodcastApplication;
 import com.sergiocasero.podcast.data.repository.PodcastDataRepository;
 import com.sergiocasero.podcast.data.repository.PodcastRepository;
 

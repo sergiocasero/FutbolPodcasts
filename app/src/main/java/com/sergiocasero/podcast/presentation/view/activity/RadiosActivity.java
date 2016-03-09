@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import com.sergiocasero.podcast.R;
@@ -28,6 +29,7 @@ import butterknife.ButterKnife;
  */
 public class RadiosActivity extends RootActivity implements RadiosPresenter.View {
 
+    private static final String TAG = "RadiosActivity";
     private RadiosComponent radiosComponent;
 
     private RadiosAdapter radiosAdapter;
@@ -94,6 +96,7 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
 
     @Override
     public void showError(String error) {
+        Log.i(TAG, error);
         Snackbar.make(container, error, Snackbar.LENGTH_LONG).show();
     }
 
