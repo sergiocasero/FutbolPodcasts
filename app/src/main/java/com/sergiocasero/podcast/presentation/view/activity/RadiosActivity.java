@@ -1,10 +1,12 @@
 package com.sergiocasero.podcast.presentation.view.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.LinearLayout;
 
 import com.sergiocasero.podcast.R;
 import com.sergiocasero.podcast.di.component.DaggerRadiosComponent;
@@ -35,6 +37,9 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+
+    @Bind(R.id.container)
+    LinearLayout container;
 
     @Inject
     RadiosPresenter radiosPresenter;
@@ -88,8 +93,8 @@ public class RadiosActivity extends RootActivity implements RadiosPresenter.View
     }
 
     @Override
-    public void showError(String s) {
-
+    public void showError(String error) {
+        Snackbar.make(container, error, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
